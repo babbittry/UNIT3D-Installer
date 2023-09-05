@@ -36,13 +36,13 @@ class Process
      * @param string $cmd
      * @return string
      */
-    public function execute($command, array $input = null, $force = false, $timeout = 3600, $cwd = null, array $env = null)
+    public function execute($command, array $input = null, $force = false, $timeout = 36000, $cwd = null, array $env = null)
     {
 
         $this->io->writeln("\n<fg=cyan>$command</>");
 
         $process = new SymfonyProcess($command, $cwd, $env, null, $timeout);
-        $process->setIdleTimeout(900);
+        $process->setIdleTimeout(9000);
 
         $inputStream = null;
         if ($input !== null && is_array($input)) {
